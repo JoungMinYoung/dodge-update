@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 8f;
     private Rigidbody bulletRigidbody;
+    public int damage = 30;
     void Start()
     {
         bulletRigidbody = GetComponent<Rigidbody>();
@@ -21,7 +22,8 @@ public class Bullet : MonoBehaviour
 
             if (playerController != null)
             {
-                playerController.Die();
+                playerController.GetDamage(damage);
+                Destroy(gameObject);
             }
         }
     }
